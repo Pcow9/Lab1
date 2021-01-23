@@ -28,12 +28,14 @@ public class GUI extends JFrame {
         // Age Textfiedl
         age = new JTextField(20);
         age.setBounds(110, 110, 130, 30);
+        age.setEditable(false);
         // Age Label
         JLabel a = new JLabel("Age: ");
         a.setBounds(50, 110, 100, 30);
         // Button
         button = new JButton("Submit me");
         button.setBounds(200, 200, 140, 40);
+        button.setEnabled(false);
         // Adding GUI elements to frame
         gui.add(n);
         gui.add(name);

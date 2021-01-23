@@ -3,6 +3,8 @@
  */
 public class AgeException extends Exception{
     String str;
+    int minAge = 0;
+    int maxAge = 100;
 
     /**
      *
@@ -10,7 +12,7 @@ public class AgeException extends Exception{
      */
     public AgeException(int age) {
         // Ages less than 0 or greater than 100 are invalid
-        if(age < 0 || age > 100){
+        if(age < minAge || age > maxAge){
             str = "0 <= " + age + " <= 100 is invalid";
         }
     }
