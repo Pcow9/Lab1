@@ -1,10 +1,17 @@
 import javax.swing.*;
 
+/**
+ * GUI class used to create window and elements
+ * @author Mio Diaz,
+ */
 public class GUI extends JFrame {
     public static JButton button;
     public static JTextField name;
     public static JTextField age;
 
+    /**
+     * creates window when called
+     */
     public void createWindow() {
         JFrame gui = new JFrame("SWENG 431 Lab1");
         // Frame settings
@@ -35,7 +42,6 @@ public class GUI extends JFrame {
         gui.add(button);
         // close on exit behavior set for window
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Added action listeners
 
         gui.setVisible(true);
     }

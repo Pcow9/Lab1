@@ -1,7 +1,13 @@
 import javax.swing.*;
 
+/**
+ * @author Mio Diaz,
+ */
 public class Main {
-
+    /**
+     * Main function
+     * @param args not used
+     */
     public static void main(String[] args) {
         GUI gui = new GUI();
         gui.createWindow();
