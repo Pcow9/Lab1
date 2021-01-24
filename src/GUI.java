@@ -49,9 +49,6 @@ public class GUI extends JFrame {
     }
 
     public void clickableButton(boolean clickName, boolean clickAge){
-        if(clickName == true && clickAge == true){
-            button.setEnabled(true);
-        }else
-            button.setEnabled(false);
+        button.setEnabled(clickName && clickAge);
     }
 }
