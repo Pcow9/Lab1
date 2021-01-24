@@ -1,13 +1,14 @@
 /**
- * @author Mio Diaz,
+ * @author Mio Diaz, Cody Walker
+ * @version 1.0
  */
 public class AgeException extends Exception{
     String str;
-    int minAge = 0;
-    int maxAge = 100;
+    int minAge = 0; // adds minimal age here for quick change
+    int maxAge = 100; // adds max agg here for quick change
 
     /**
-     *
+     * add error message if age is to big or to small
      * @param age pass user input from age field
      */
     public AgeException(int age) {
