@@ -2,7 +2,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Mio Diaz,
+ * @author Mio Diaz, Cody Walker
+ * @version  1.0
  */
 public class Utility {
     /**

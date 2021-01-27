@@ -4,13 +4,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author Mio Diaz,
+ * @author Mio Diaz, Cody Walker
+ * @version 1.0
  */
 public class NameException extends Exception {
     String str; // Returned string
 
     /**
-     *
+     * adds the error message to NameException
      * @param hasSpecial boolean used to determine if string contains unapproved char
      * @param hasDigit   boolean used to determine if string has digit
      * @param strLen     value used to determine if string meets length constraint
