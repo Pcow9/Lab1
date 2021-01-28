@@ -1,7 +1,8 @@
 import javax.swing.*;
 
 /**
- * GUI class used to create window and elements
+ * GUI class used to create window and add elements
+ *
  * @author Mio Diaz, Cody Walker
  * @version 1.0
  */
@@ -11,7 +12,7 @@ public class GUI extends JFrame {
     public static JTextField age;
 
     /**
-     * creates window when called
+     * Creates GUI window when called
      */
     public void createWindow() {
         JFrame gui = new JFrame("SWENG 431 Lab1");
@@ -34,7 +35,7 @@ public class GUI extends JFrame {
         JLabel a = new JLabel("Age: ");
         a.setBounds(50, 110, 100, 30);
         // Button
-        button = new JButton("Submit me");
+        button = new JButton("Submit");
         button.setBounds(200, 200, 140, 40);
         button.setEnabled(false); // makes button unclickable from the start, become clickable by function clickableButton
         // Adding GUI elements to frame
@@ -47,18 +48,5 @@ public class GUI extends JFrame {
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         gui.setVisible(true);
-    }
-
-    /**
-     * makes button clickable or unclickable with correct values
-     * @param clickName boolean for if name is correct
-     * @param clickAge  boolean for if age is correct
-     */
-    public void clickableButton(boolean clickName, boolean clickAge){
-        //check to see that both text are correct before button becomes clickable
-        if(clickName == true && clickAge == true){
-            button.setEnabled(true);
-        }else
-            button.setEnabled(false);
     }
 }

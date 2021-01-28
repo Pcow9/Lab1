@@ -4,6 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Name exception class determines exception to be thrown based on parameter values
+ *
  * @author Mio Diaz, Cody Walker
  * @version 1.0
  */
@@ -11,7 +13,8 @@ public class NameException extends Exception {
     String str; // Returned string
 
     /**
-     * adds the error message to NameException
+     * Adds the error message to NameException based on values
+     *
      * @param hasSpecial boolean used to determine if string contains unapproved char
      * @param hasDigit   boolean used to determine if string has digit
      * @param strLen     value used to determine if string meets length constraint
@@ -29,7 +32,7 @@ public class NameException extends Exception {
             }
             // if string has a special char and digit
             else if(hasDigit && hasSpecial) {
-                str = "a special character exists, a digit exists.";
+                str = "a special character and a digit exists.";
             }
         }
         // if length of string is invalid ( either less than 0 or greater than 15 )

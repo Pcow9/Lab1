@@ -1,8 +1,9 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
+ * Main class used to create window, verify input, catch exceptions for name and age
  * @author Mio Diaz, Cody Walker
  * @version 1.0
  */
@@ -15,51 +16,75 @@ public class Main {
         GUI gui = new GUI();
         gui.createWindow();
         Utility nc = new Utility();
-        final boolean[] clickName = {false};
-        final boolean[] clickAge = {false};
-        InputVerifier inn = new InputVerifier() {
+
+        // Input Verifier for name text field
+        InputVerifier ivn = new InputVerifier() {
             @Override
             public boolean verify(JComponent input) {
-                JTextField jtf = (JTextField) input;
+                JTextField jtf = (JTextField) input; // user input into field
                 try {
-                    nc.checkName(GUI.name.getText());
+                    nc.checkName(jtf.getText());
                 } catch (NameException e) {
                     System.out.println(e);
-                    clickName[0] = false;
-                    gui.clickableButton(clickName[0], clickAge[0]);  //calls function form class GUI, will make button unclickable
                     return false;
                 }
+
                 GUI.age.setEditable(true);  //  lets age text file be editable
-                clickName[0] = true;
-                gui.clickableButton(clickName[0], clickAge[0]);  //calls function form class GUI, might make button clickable if clickAge is true
+
                 return true;
             }
         };
-        InputVerifier ina = new InputVerifier() {
+
+        // Input Verifier for age text field
+        InputVerifier iva = new InputVerifier() {
             @Override
             public boolean verify(JComponent input) {
                 JTextField jtf = (JTextField) input;
-                try {
-                    nc.checkAge(Integer.parseInt(GUI.age.getText()));
-                } catch (AgeException e) {
-                    System.out.println(e);
-                    clickAge[0] = false;
-                    gui.clickableButton(clickName[0], clickAge[0]); //calls function form class GUI, will make button unclickable
-                    return false;
-                }
-                clickAge[0] = true;
-                gui.clickableButton(clickName[0], clickAge[0]); //calls function form class GUI, might make button clickable if clickName is true
+                if(!jtf.getText().equals("")){
+                    try {
+                        nc.checkAge(Integer.parseInt(jtf.getText()));
+                    } catch (AgeException e) {
+                        System.out.println(e);
+
+                        return false;
+                    }
+                }else { return false; }
+
                 return true;
             }
         };
-        GUI.name.setInputVerifier(inn);
-        GUI.age.setInputVerifier(ina);
-        GUI.button.addActionListener(new ActionListener() {
+        // Set age and name field input verifiers
+        GUI.age.setInputVerifier(iva);
+        GUI.name.setInputVerifier(ivn);
+        // Name key listener for button enable
+        GUI.name.addKeyListener(new KeyListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(" your name is " + GUI.name.getText() + " and your age is " + GUI.age.getText() + ".");
+            public void keyTyped(KeyEvent e) { }
+            @Override
+            public void keyPressed(KeyEvent e) { }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                // if name and age are true enable button
+                GUI.button.setEnabled(ivn.verify(GUI.name) && iva.verify(GUI.age));
+                // Button console output when clicked
+
             }
         });
+        // age key listener for button enable
+        GUI.age.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) { }
+            @Override
+            public void keyPressed(KeyEvent e) {  }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                // if name and age are true enable button
+                GUI.button.setEnabled(ivn.verify(GUI.name) && iva.verify(GUI.age));
+            }
+        });
+        // button click dialog msg
+        GUI.button.addActionListener(al ->  JOptionPane.showMessageDialog(null,
+                "Your name is " + GUI.name.getText() + " and your age is " + GUI.age.getText() + ".", "About You", JOptionPane.INFORMATION_MESSAGE));
 
     }
 }

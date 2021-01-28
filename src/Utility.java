@@ -2,11 +2,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Utility class used to call check name and check age for exceptions
+ *
  * @author Mio Diaz, Cody Walker
  * @version  1.0
  */
 public class Utility {
     /**
+     * Check Name uses temp string to determine if exception is thrown
      *
      * @param temp temp string pulled from user input for name
      * @throws NameException compare string to determine valid or invalid input
@@ -24,17 +27,14 @@ public class Utility {
         int strLen = temp.length();      // string length used to determine valid or invalid length
 
         // If any of the values are true pass all values and
-        // throw a nameexception if once of the exception conditions are met
-        if(hasSpecial || hasDigit || strLen > 15){
-            throw new NameException(hasSpecial, hasDigit, strLen);
-            //System.out.println(hasDigit + "\n" + hasSpecial + "\n" + strLen);
-        }
-
+        // throw a name exception if once of the exception conditions are met
+        if(hasSpecial || hasDigit || strLen > 15) throw new NameException(hasSpecial, hasDigit, strLen);
     }
 
     /**
+     * Check age uses age val to determine if age exception is thrown
      *
-     * @param val age value from user input in age textfield
+     * @param val age value from user input in age text field
      * @throws AgeException compare age to determine valid or invalid input
      */
     public void checkAge(int val) throws AgeException {
