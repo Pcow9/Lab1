@@ -5,7 +5,7 @@
  * @version 1.0
  */
 public class AgeException extends Exception{
-    String str = null;
+    String str;
     /**
      * set error message if age is to0 big or small
      * @param val value of age

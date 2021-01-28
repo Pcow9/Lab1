@@ -84,7 +84,8 @@ public class Main {
         });
         // button click dialog msg
         GUI.button.addActionListener(al ->  JOptionPane.showMessageDialog(null,
-                "Your name is " + GUI.name.getText() + " and your age is " + GUI.age.getText() + ".", "About You", JOptionPane.INFORMATION_MESSAGE));
+                "Your name is " + GUI.name.getText() + " and your age is " +
+                        GUI.age.getText() + ".", "About You", JOptionPane.INFORMATION_MESSAGE));
 
     }
 }
