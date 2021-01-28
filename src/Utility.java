@@ -28,7 +28,7 @@ public class Utility {
 
         // If any of the values are true pass all values and
         // throw a name exception if once of the exception conditions are met
-        if(hasSpecial || hasDigit || strLen > 15) throw new NameException(hasSpecial, hasDigit, strLen);
+        if(hasSpecial || hasDigit || strLen > 15 || strLen < 1) throw new NameException(hasSpecial, hasDigit, strLen);
     }
 
     /**

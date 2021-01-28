@@ -8,6 +8,8 @@ import java.awt.event.KeyListener;
  * @version 1.0
  */
 public class Main {
+    boolean nameacc = false;
+    boolean ageacc = false;
     /**
      * Main function
      * @param args not used
