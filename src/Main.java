@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
 /**
  * Main class used to create window, verify input, catch exceptions for name and age
  * @author Mio Diaz, Cody Walker
@@ -70,8 +69,8 @@ public class Main {
                 }else {
                     // if name and age are true enable button
                     GUI.button.setEnabled(ivn.verify(GUI.name) && iva.verify(GUI.age));
-                    // Button console output when clicked
                 }
+
             }
         });
         // age key listener for button enable
@@ -82,12 +81,8 @@ public class Main {
             public void keyPressed(KeyEvent e) {  }
             @Override
             public void keyReleased(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_SHIFT || e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-
-                }else {
-                    // if name and age are true enable button
-                    GUI.button.setEnabled(ivn.verify(GUI.name) && iva.verify(GUI.age));
-                }
+                // if name and age are true enable button
+                GUI.button.setEnabled(ivn.verify(GUI.name) && iva.verify(GUI.age));
             }
         });
         // button click dialog msg
